@@ -39,12 +39,32 @@ export const Portamento: React.FunctionComponent<PortamentoDetails> = (props) =>
                 }}
                 min={0} max={99} value={props.data.portamento.rate} onValueChange={(value: number | null) => props.handleChange(110, value, ["portamento", "rate"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Type"}
             >
-              <Select style={{ width: "90px" }}
+              <Select
                 options={portamentoTypes} bordered={true} value={props.data.portamento.type} onChange={(value: number | null) => props.handleChange(111, value, ["portamento", "type"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Portamento"}
             >

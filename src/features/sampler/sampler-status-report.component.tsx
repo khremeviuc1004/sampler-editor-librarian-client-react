@@ -42,9 +42,9 @@ const SamplerStatusReport: React.FunctionComponent = () => {
                 let data: DataType[] = []
 
                 Object.entries(results).map(([key, value]) => {
-                    if (typeof value  == 'number') {
+                    if (typeof value == 'number') {
                         let typed_value: number = value
-                        data.push({name: key, value: typed_value})
+                        data.push({ name: key, value: typed_value })
                     }
                 })
 

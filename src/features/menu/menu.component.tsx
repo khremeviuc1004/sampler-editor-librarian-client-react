@@ -22,10 +22,6 @@ export const MenuComponent: React.FunctionComponent<MenuComponentProps> = (props
 
   const items: MenuProps['items'] = [
     {
-      label: 'File',
-      key: 'file',
-    },
-    {
       label: 'Config',
       key: 'config',
     },

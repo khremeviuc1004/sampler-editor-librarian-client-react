@@ -93,18 +93,6 @@ const SamplerProgramTable: React.FunctionComponent = () => {
             })
         })   
     }
-    let handleImportProgramToLibrary = (programNumberInMemory: number) => {
-        fetch(
-            `http://localhost:4000/api/midi/sampler/import_to_library/program/${programNumberInMemory}`,
-            {method: 'GET'}
-        ).then((value: Response) => {
-        }).catch((reason: any) => {
-            api['error']({
-                message: 'Add Failure',
-                description: 'Could not import program: ' + reason,
-            })
-        })   
-    }
     const columns: ColumnsType<DataType> = [
         {
             title: '',
@@ -127,9 +115,6 @@ const SamplerProgramTable: React.FunctionComponent = () => {
                                 <DeleteOutlined title="Delete program" />
                             </Popconfirm>
                             <EditOutlined title='Edit program' onClick={() => handleEditProgram(record)} />
-                            <Popconfirm title="Are you sure - large samples will take forever to upload?" onConfirm={() => handleImportProgramToLibrary(record.index)}>
-                                <ImportOutlined title='Import sampler program to database' />
-                            </Popconfirm>
                         </>
             }
         },

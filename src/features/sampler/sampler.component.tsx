@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import { Breadcrumb, Col, Row } from 'antd';
+import { Breadcrumb, Col, Divider, Row } from 'antd';
 import { MenuComponent } from '../menu/menu.component';
 import SamplerProgramTable from './sampler-program-table.component';
 import SamplerSampleTable from './sampler-sample-table.component';
@@ -19,38 +19,41 @@ export const Sampler: React.FunctionComponent = (props) => {
   }, [])
 
   return (
-      <>
-        <MenuComponent />
-        <Breadcrumb items={breadcrumbItems} />
-        <Stack
-          direction="column"
-          alignItems="center"
-          sx={{
-            width: '100%',
-            height: '800px',
-          }}
-          >
-          <Row gutter={50}>
-            <Col style={{width: "33%"}}>
-              <SamplerStatusReport />
-            </Col>
-            <Col style={{width: "33%"}}>
-              <SamplerProgramTable />
-            </Col>
-            <Col style={{width: "33%"}}>
-              <SamplerSampleTable />
-            </Col>
-          </Row>
-          <Row gutter={50}>
-            <Col style={{width: "33%"}}>
-              <HardDiskDirectoryTable />
-            </Col>
-            <Col style={{width: "33%"}}>
-            </Col>
-            <Col style={{width: "33%"}}>
-            </Col>
-          </Row>
-        </Stack>
-      </>
+    <>
+      <MenuComponent />
+      <Breadcrumb items={breadcrumbItems} />
+      <Stack
+        direction="column"
+        alignItems="center"
+        sx={{
+          width: '100%',
+          height: '800px',
+        }}
+      >
+        <Divider orientation="left" />
+        <Row gutter={[50, 50]}>
+          <Col  className='wide-table-col'>
+            <SamplerStatusReport />
+          </Col>
+          <Col  className='wide-table-col'>
+            <SamplerProgramTable />
+          </Col>
+          <Col  className='wide-table-col'>
+            <SamplerSampleTable />
+          </Col>
+        </Row>
+        <Divider orientation="left" />
+        <Row gutter={[50, 50]}>
+          <Col  className='wide-table-col'>
+            <HardDiskDirectoryTable />
+          </Col>
+          <Col  className='wide-table-col'>
+          </Col>
+          <Col  className='wide-table-col'>
+          </Col>
+        </Row>
+        <Divider orientation="left" />
+      </Stack>
+    </>
   );
 };

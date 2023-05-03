@@ -47,38 +47,38 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   ]
   const fetchData = () => {
     fetch(`http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}`)
-        .then((res) => res.json())
-        .then((results: Program) => {
-          console.log("Program data: ", results)
-          setData({
-            ...results
-          })
-
-          let keygroups = []
-          for(let index=0; index < results.numberOfKeyGroups; index++) {
-            keygroups.push({index})
-          }
-
-          setKeygroups(keygroups)
-          setLoading(false);
-          setTableParams({
-            ...tableParams,
-            pagination: {
-                ...tableParams.pagination,
-                total: keygroups.length,
-            },
+      .then((res) => res.json())
+      .then((results: Program) => {
+        console.log("Program data: ", results)
+        setData({
+          ...results
         })
-    })
+
+        let keygroups = []
+        for (let index = 0; index < results.numberOfKeyGroups; index++) {
+          keygroups.push({ index })
+        }
+
+        setKeygroups(keygroups)
+        setLoading(false);
+        setTableParams({
+          ...tableParams,
+          pagination: {
+            ...tableParams.pagination,
+            total: keygroups.length,
+          },
+        })
+      })
   }
   const [api] = notification.useNotification();
   useEffect(() => {
-      fetchData();
+    fetchData();
   }, [JSON.stringify(inMemoryProgramNumber)])
   const handleChange = (programHeaderIndex: number, value: number | boolean | null, path: Array<string>, programNumberInMemory: number, program: Program) => {
     if (value !== null) {
       fetch(
         `http://localhost:4000/api/midi/sampler/program/${programNumberInMemory}/index/${programHeaderIndex}/value/${typeof value !== "boolean" ? value : (value ? 1 : 0)}`,
-        {method: 'PUT'}
+        { method: 'PUT' }
       )
       let newData: Program = JSON.parse(JSON.stringify(program)) // deep clone
       let data: any = newData
@@ -96,53 +96,53 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   const [loading, setLoading] = useState(false)
   const [tableParams, setTableParams] = useState<TableParams>({
     pagination: {
-        current: 1,
-        pageSize: 7,
-        hideOnSinglePage: true,
+      current: 1,
+      pageSize: 7,
+      hideOnSinglePage: true,
     },
   })
   const handleTableChange = (
     pagination: TablePaginationConfig,
   ) => {
-      setTableParams({
-          ...tableParams,
-          pagination
-      })
+    setTableParams({
+      ...tableParams,
+      pagination
+    })
   }
   let handleEditKeyGroup = (record: KeyGroup) => {
     navigate("/in-memory-key-group/" + inMemoryProgramNumber + "/keygroup/" + record.index)
   }
   let handleDeleteKeyGroup = (keygroupNumberInProgram: number) => {
     fetch(
-        `http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}/keygroup/${keygroupNumberInProgram}`,
-        {method: 'DELETE'}
+      `http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}/keygroup/${keygroupNumberInProgram}`,
+      { method: 'DELETE' }
     ).then((value: Response) => {
-        fetchData()
+      fetchData()
     }).catch((reason: any) => {
-        api['error']({
-            message: 'Delete Failure',
-            description: 'Could not delete the key group: ' + reason,
-        })
-    })   
+      api['error']({
+        message: 'Delete Failure',
+        description: 'Could not delete the key group: ' + reason,
+      })
+    })
   }
   let handleAddKeygroup = () => {
-      fetch(
-          `http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}/keygroup/${keygroups?.length}`,
-          {method: 'POST'}
-      ).then((value: Response) => {
-          fetchData()
-      }).catch((reason: any) => {
-          api['error']({
-              message: 'Add Failure',
-              description: 'Could not add a new key group to the program: ' + reason,
-          })
-      })   
+    fetch(
+      `http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}/keygroup/${keygroups?.length}`,
+      { method: 'POST' }
+    ).then((value: Response) => {
+      fetchData()
+    }).catch((reason: any) => {
+      api['error']({
+        message: 'Add Failure',
+        description: 'Could not add a new key group to the program: ' + reason,
+      })
+    })
   }
   const handleNameChange = (programHeaderIndex: number, name: string, path: Array<string>, program: Program) => {
     if (name !== null) {
       fetch(
         `http://localhost:4000/api/midi/sampler/program/${programNumberInMemory}/index/${programHeaderIndex}/name/${name}`,
-        {method: 'PUT'}
+        { method: 'PUT' }
       )
       let newData: Program = JSON.parse(JSON.stringify(program)) // deep clone
       let data: any = newData
@@ -158,124 +158,124 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   }
   const columns: ColumnsType<KeyGroup> = [
     {
-        title: '',
-        dataIndex: 'index',
-        render: (index) => "Key group " + (index + 1),
+      title: '',
+      dataIndex: 'index',
+      render: (index) => "Key group " + (index + 1),
     },
     {
       title: '',
       dataIndex: 'action',
       width: '10%',
       render: (value: any, record: KeyGroup, index: number) => {
-          return  <>
-                      <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteKeyGroup(record.index)}>
-                          <DeleteOutlined title="Delete key group" />
-                      </Popconfirm>
-                      <EditOutlined title='Edit keygroup' onClick={() => handleEditKeyGroup(record)} />
-                  </>
+        return <>
+          <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteKeyGroup(record.index)}>
+            <DeleteOutlined title="Delete key group" />
+          </Popconfirm>
+          <EditOutlined title='Edit keygroup' onClick={() => handleEditKeyGroup(record)} />
+        </>
       }
     },
   ];
 
   return (
-      <>
-        <MenuComponent />
-        <Breadcrumb items={breadcrumbItems} />
-        <div>In Memory Program: {programNumberInMemory}</div>
-        <Row gutter={50}>
-          <Col>
-            <Form
-              labelCol={{span: 20}}
-              wrapperCol={{span: 20}}
-              size={"small"}
-              layout='vertical'
+    <>
+      <MenuComponent />
+      <Breadcrumb items={breadcrumbItems} />
+      <div>In Memory Program: {programNumberInMemory}</div>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            labelCol={{ span: 20 }}
+            wrapperCol={{ span: 20 }}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Program Name"}
             >
-              <Form.Item
-                label={"Program Name"}
-              >
-                <Input bordered={true} defaultValue={0} min={3} max={12} value={data.name} onChange={(event) => handleNameChange(3, event.target.value, ["name"], data)} />
-              </Form.Item>
-            </Form>
-          </Col>
-          <Col>
-            <Table
-              bordered={true}
-              columns={columns}
-              rowKey={(record) => record.index}
-              dataSource={keygroups}
-              pagination={tableParams.pagination}
-              loading={loading}
-              title={() => 'Key Groups'}
-              onChange={handleTableChange}
-              footer={() => <Button type='primary'><PlusOutlined title='Add a new key group' onClick={handleAddKeygroup} /></Button>}
-            />
-          </Col>
-        </Row>
-         <Tabs
-          size='small'
-          items={[
-            {
-              key: 'lfo1',
-              label: `LFO1`,
-              children: <LFO1 programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'lfo2',
-              label: `LFO2`,
-              children: <LFO2 programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'pitch_bend',
-              label: `Pitch Bend`,
-              children: <PitchBend programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'semitone_tuning',
-              label: `Temper Tuning`,
-              children: <SemitoneTuning programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'master_tuning',
-              label: `Master Tuning`,
-              children: <MasterTuning programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'soft_pedal',
-              label: `Soft Pedal`,
-              children: <SoftPedal programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'modes',
-              label: `Modes`,
-              children: <Modes programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'master_output',
-              label: `Master Output`,
-              children: <MasterOutput programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'master_pan',
-              label: `Master Pan`,
-              children: <MasterPan programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'midi',
-              label: `Midi`,
-              children: <MidiPan programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'portamento',
-              label: `Portamento`,
-              children: <Portamento programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-            {
-              key: 'keygroup_global',
-              label: `Keygroup Global`,
-              children: <KeyGroupGlobal programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
-            },
-          ]}
+              <Input bordered={true} defaultValue={0} min={3} max={12} value={data.name} onChange={(event) => handleNameChange(3, event.target.value, ["name"], data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Table
+            bordered={true}
+            columns={columns}
+            rowKey={(record) => record.index}
+            dataSource={keygroups}
+            pagination={tableParams.pagination}
+            loading={loading}
+            title={() => 'Key Groups'}
+            onChange={handleTableChange}
+            footer={() => <Button type='primary'><PlusOutlined title='Add a new key group' onClick={handleAddKeygroup} /></Button>}
           />
-      </>
+        </Col>
+      </Row>
+      <Tabs
+        size='small'
+        items={[
+          {
+            key: 'lfo1',
+            label: `LFO1`,
+            children: <LFO1 programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'lfo2',
+            label: `LFO2`,
+            children: <LFO2 programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'pitch_bend',
+            label: `Pitch Bend`,
+            children: <PitchBend programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'semitone_tuning',
+            label: `Temper Tuning`,
+            children: <SemitoneTuning programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'master_tuning',
+            label: `Master Tuning`,
+            children: <MasterTuning programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'soft_pedal',
+            label: `Soft Pedal`,
+            children: <SoftPedal programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'modes',
+            label: `Modes`,
+            children: <Modes programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'master_output',
+            label: `Master Output`,
+            children: <MasterOutput programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'master_pan',
+            label: `Master Pan`,
+            children: <MasterPan programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'midi',
+            label: `Midi`,
+            children: <MidiPan programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'portamento',
+            label: `Portamento`,
+            children: <Portamento programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+          {
+            key: 'keygroup_global',
+            label: `Keygroup Global`,
+            children: <KeyGroupGlobal programNumberInMemory={programNumberInMemory} data={data} setData={setData} handleChange={handleChange} />,
+          },
+        ]}
+      />
+    </>
   );
 }

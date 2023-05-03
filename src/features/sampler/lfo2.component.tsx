@@ -26,9 +26,20 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
             <Form.Item
               label={"Waveform"}
             >
-              <Select style={{ width: "90px" }}
+              <Select
                 options={waveFormTypes} bordered={true} value={props.data.lfo2.waveform} onChange={(value: number | null) => props.handleChange(98, value, ["lfo2", "waveform"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Speed"}
             >
@@ -41,6 +52,17 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
                 }}
                 min={0} max={99} value={props.data.lfo2.speed} onValueChange={(value: number | null) => props.handleChange(29, value, ["lfo2", "speed"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Depth"}
             >
@@ -53,6 +75,17 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
                 }}
                 min={0} max={99} value={props.data.lfo2.depth} onValueChange={(value: number | null) => props.handleChange(30, value, ["lfo2", "depth"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Delay"}
             >
@@ -65,6 +98,17 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
                 }}
                 min={0} max={99} value={props.data.lfo2.delay} onValueChange={(value: number | null) => props.handleChange(31, value, ["lfo2", "delay"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Retrigger"}
             >
