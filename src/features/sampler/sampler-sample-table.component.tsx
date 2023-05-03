@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, notification, Popconfirm, Row, Table } from 'antd'
+import { Button, Col, notification, Popconfirm, Row, Space, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import type { FilterValue, SorterResult } from 'antd/es/table/interface'
 import qs from 'qs'
@@ -117,10 +117,12 @@ const SamplerSampleTable: React.FunctionComponent = () => {
                 const sampleNumberInMemory = record.index
 
                 return <>
-                    <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteSample(sampleNumberInMemory)}>
-                        <DeleteOutlined title="Delete sample" />
-                    </Popconfirm>
-                    <EditOutlined title='Edit sample' onClick={() => handleEditSample(sampleNumberInMemory)} />
+                    <Space>
+                        <EditOutlined title='Edit sample' onClick={() => handleEditSample(sampleNumberInMemory)} />
+                        <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteSample(sampleNumberInMemory)}>
+                            <DeleteOutlined title="Delete sample" />
+                        </Popconfirm>
+                    </Space>
                 </>
             }
         },

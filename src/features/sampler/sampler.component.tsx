@@ -31,7 +31,7 @@ export const Sampler: React.FunctionComponent = (props) => {
         }}
       >
         <Divider orientation="left" />
-        <Row gutter={[50, 50]}>
+        <Row gutter={10}>
           <Col  className='wide-table-col'>
             <SamplerStatusReport />
           </Col>
@@ -43,7 +43,7 @@ export const Sampler: React.FunctionComponent = (props) => {
           </Col>
         </Row>
         <Divider orientation="left" />
-        <Row gutter={[50, 50]}>
+        <Row gutter={10}>
           <Col  className='wide-table-col'>
             <HardDiskDirectoryTable />
           </Col>

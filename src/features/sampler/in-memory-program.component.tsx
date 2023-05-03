@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Col, Form, Input, notification, Popconfirm, Row, TablePaginationConfig, Tabs } from 'antd';
+import { Breadcrumb, Button, Col, Form, Input, notification, Popconfirm, Row, Space, TablePaginationConfig, Tabs } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import { FilterValue } from 'antd/es/table/interface';
 import { useEffect, useState } from 'react';
@@ -158,7 +158,7 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   }
   const columns: ColumnsType<KeyGroup> = [
     {
-      title: '',
+      title: 'Number',
       dataIndex: 'index',
       render: (index) => "Key group " + (index + 1),
     },
@@ -168,10 +168,12 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
       width: '10%',
       render: (value: any, record: KeyGroup, index: number) => {
         return <>
-          <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteKeyGroup(record.index)}>
-            <DeleteOutlined title="Delete key group" />
-          </Popconfirm>
-          <EditOutlined title='Edit keygroup' onClick={() => handleEditKeyGroup(record)} />
+          <Space>
+            <EditOutlined title='Edit keygroup' onClick={() => handleEditKeyGroup(record)} />
+            <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteKeyGroup(record.index)}>
+              <DeleteOutlined title="Delete key group" />
+            </Popconfirm>
+          </Space>
         </>
       }
     },
