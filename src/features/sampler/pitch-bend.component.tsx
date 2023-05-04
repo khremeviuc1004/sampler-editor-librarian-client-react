@@ -37,6 +37,21 @@ export const PitchBend: React.FunctionComponent<PitchBendDetails> = (props) => {
             </Form.Item>
           </Form>
         </Col>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Bend Mode"}
+            >
+              <Select
+                options={bendModes} bordered={true} value={props.data.pitchBend.bendMode} onChange={(value: number | null) => props.handleChange(74, value, ["pitchBend", "bendMode"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
       </Row>
       <Row gutter={50}>
         <Col>
@@ -80,23 +95,6 @@ export const PitchBend: React.FunctionComponent<PitchBendDetails> = (props) => {
                   ...donutTheme
                 }}
                 min={-12} max={12} value={props.data.pitchBend.pressureModulation} onValueChange={(value: number | null) => props.handleChange(40, value, ["pitchBend", "pressureModulation"], props.programNumberInMemory, props.data)} />
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
-      <Row gutter={50}>
-        <Col>
-          <Form
-            labelCol={{ span: 200 }}
-            wrapperCol={{ span: 200 }}
-            size={"small"}
-            layout='vertical'
-          >
-            <Form.Item
-              label={"Bend Mode"}
-            >
-              <Select
-                options={bendModes} bordered={true} value={props.data.pitchBend.bendMode} onChange={(value: number | null) => props.handleChange(74, value, ["pitchBend", "bendMode"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

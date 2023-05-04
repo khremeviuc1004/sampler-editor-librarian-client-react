@@ -96,7 +96,7 @@ const MidiConnectionTable: React.FunctionComponent<ConfigProperties> = (props) =
         console.log("Row selected", selectedRowKeys)
         let rowKeys: number[] = []
         selectedRowKeys.forEach((value) => {
-            if (value) {
+            if (value !== null) {
                 let rowKey: number = value.valueOf() as number
                 rowKeys.push(rowKey)
             }

@@ -120,7 +120,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.rate1}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       value,
                       props.data.envelope2.level1,
@@ -157,7 +157,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.level1}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       value,
@@ -235,7 +235,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.rate2}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,
@@ -272,7 +272,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.level2}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,
@@ -357,7 +357,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.rate3}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,
@@ -394,7 +394,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.level3}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,
@@ -456,7 +456,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.rate4}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,
@@ -493,7 +493,7 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
                 max={99}
                 value={props.data.envelope2.level4}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
                       props.data.envelope2.level1,

@@ -43,7 +43,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={99}
                 value={props.data.filter1.frequency}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(7, value, ["filter1", "frequency"], props.data)
+                  if (value !== null) props.handleChange(7, value, ["filter1", "frequency"], props.data)
                 }} />
             </Form.Item>
           </Form>
@@ -68,7 +68,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={50}
                 value={props.data.filter1.freqModulationInput1Amount}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(151, value, ["filter1", "freqModulationInput1Amount"], props.data)
+                  if (value !== null) props.handleChange(151, value, ["filter1", "freqModulationInput1Amount"], props.data)
                 }} />
             </Form.Item>
           </Form>
@@ -95,7 +95,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={24}
                 value={props.data.filter1.keyFollow}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(8, value, ["filter1", "keyFollow"], props.data)
+                  if (value !== null) props.handleChange(8, value, ["filter1", "keyFollow"], props.data)
                 }} />
             </Form.Item>
           </Form>
@@ -120,7 +120,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={50}
                 value={props.data.filter1.freqModulationInput2Amount}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(152, value, ["filter1", "freqModulationInput2Amount"], props.data)
+                  if (value !== null) props.handleChange(152, value, ["filter1", "freqModulationInput2Amount"], props.data)
                 }} />
             </Form.Item>
           </Form>
@@ -147,7 +147,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={15}
                 value={props.data.filter1.resonance}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(149, value, ["filter1", "resonance"], props.data)
+                  if (value !== null) props.handleChange(149, value, ["filter1", "resonance"], props.data)
                 }} />
             </Form.Item>
           </Form>
@@ -172,7 +172,7 @@ export const KeygroupFilter1: React.FunctionComponent<Filter1Details> = (props) 
                 max={50}
                 value={props.data.filter1.freqModulationInput3Amount}
                 onValueChange={(value: number | null) => {
-                  if (value) props.handleChange(153, value, ["filter1", "freqModulationInput3Amount"], props.data)
+                  if (value !== null) props.handleChange(153, value, ["filter1", "freqModulationInput3Amount"], props.data)
                 }} />
             </Form.Item>
           </Form>

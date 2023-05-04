@@ -69,7 +69,7 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
                 max={99}
                 value={props.data.envelope1.attack}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       value,
                       props.data.envelope1.decay,
@@ -145,7 +145,7 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
                 max={99}
                 value={props.data.envelope1.decay}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
                       value,
@@ -215,7 +215,7 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
                 max={99}
                 value={props.data.envelope1.sustain}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
                       props.data.envelope1.decay,
@@ -272,7 +272,7 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
                 max={99}
                 value={props.data.envelope1.release}
                 onValueChange={(value: number | null) => {
-                  if (value) {
+                  if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
                       props.data.envelope1.decay,

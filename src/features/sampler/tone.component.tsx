@@ -31,7 +31,7 @@ export const KeygroupTone: React.FunctionComponent<ToneDetails> = (props) => {
             layout='vertical'
           >
             <Form.Item
-              label={"Centre Frequency"}
+              label={"Filter 2/Tone Enable"}
             >
               <Checkbox checked={props.data.filter2ToneEnabled} onChange={(event) => props.handleChange(168, event.target.checked, ["filter2ToneEnabled"], props.data)} />
             </Form.Item>
