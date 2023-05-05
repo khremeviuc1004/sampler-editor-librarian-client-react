@@ -34,7 +34,7 @@ export const InMemorySample: React.FunctionComponent = (props) => {
       })
   }
   useEffect(() => {
-    console.log("Whoops!")
+    console.log("Rendering sampler sample view")
     fetchData();
   }, [])
   const handleChange = (sampleHeaderIndex: number, value: number | boolean | null, path: Array<string>, sample: Sample) => {
@@ -88,17 +88,67 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             layout='vertical'
           >
             <Form.Item
+              label={"Name"}
+            >
+              <Input bordered={true} defaultValue={0} min={3} max={12} value={data.name} onChange={(event) => handleNameChange(3, event.target.value, ["name"], data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
               label={"Bandwidth"}
             >
               <Select
                 options={bandwidths}
                 bordered={true}
                 value={data.bandwith}
-                disabled={true}
-                onChange={(value: number | null) => handleChange(1, value, ["bandwith"], data)} />
+                disabled={true} />
             </Form.Item>
           </Form>
         </Col>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Sample Rate"}
+            >
+              <InputNumber
+                bordered={true}
+                disabled={true}
+                defaultValue={44100}
+                readOnly={true}
+                min={1}
+                max={44100}
+                value={data.sampleRate} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            labelCol={{ span: 200 }}
+            wrapperCol={{ span: 200 }}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Sample rate validity"}
+            >
+              <Checkbox checked={data.valid} disabled={true} />
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
         <Col>
           <Form
             labelCol={{ span: 200 }}
@@ -116,7 +166,9 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={21} max={127} value={data.originalPitch} onValueChange={(value: number | null) => handleChange(2, value, ["originalPitch"], data)} />
+                min={21} 
+                max={127} 
+                value={data.originalPitch} onValueChange={(value: number | null) => handleChange(2, value, ["originalPitch"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -128,25 +180,20 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             layout='vertical'
           >
             <Form.Item
-              label={"Name"}
+              label={"Start Offset"}
+              tooltip={"Play Start Offset from Start of Sample"}
             >
-              <Input bordered={true} defaultValue={0} min={3} max={12} value={data.name} onChange={(event) => handleNameChange(3, event.target.value, ["name"], data)} />
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
-      <Row gutter={50}>
-        <Col>
-          <Form
-            labelCol={{ span: 200 }}
-            wrapperCol={{ span: 200 }}
-            size={"small"}
-            layout='vertical'
-          >
-            <Form.Item
-              label={"Sample rate validity"}
-            >
-              <Checkbox checked={data.valid} disabled={true} /* onChange={(event) => handleChange(15, event.target.checked, ["valid"], data)} */ />
+              <Donut
+                diameter={50}
+                step={1}
+                jumpLimit={10}
+                theme={{
+                  ...donutTheme
+                }}
+                min={0} 
+                max={data.sampleLength > 0 ? data.sampleLength : 12}
+                value={data.startOffset} 
+                onValueChange={(value: number | null) => handleChange(30, value, ["startOffset"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -160,14 +207,14 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             <Form.Item
               label={"Number of loops"}
             >
-              <Donut
-                diameter={50}
-                step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={4} value={data.numberOfLoops} /* onChange={(value: number | null) => handleChange(16, value, ["numberOfLoops"], data)} */ />
+              <InputNumber
+                controls={true}
+                bordered={true}
+                defaultValue={0}
+                readOnly={true}
+                min={0}
+                max={4}
+                value={data.numberOfLoops} />
             </Form.Item>
           </Form>
         </Col>
@@ -213,51 +260,6 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             layout='vertical'
           >
             <Form.Item
-              label={"Length"}
-            >
-              <Donut
-                diameter={50}
-                step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={1} max={268435455} value={data.sampleLength} /* onChange={(value: number | null) => handleChange(26, value, ["sampleLength"], data)} */ />
-            </Form.Item>
-          </Form>
-        </Col>
-        <Col>
-          <Form
-            labelCol={{ span: 200 }}
-            wrapperCol={{ span: 200 }}
-            size={"small"}
-            layout='vertical'
-          >
-            <Form.Item
-              label={"Start Offset"}
-              tooltip={"Play Start Offset from Start of Sample"}
-            >
-              <Donut
-                diameter={50}
-                step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={data.sampleLength - 1} value={data.startOffset} onValueChange={(value: number | null) => handleChange(30, value, ["startOffset"], data)} />
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
-      <Row gutter={50}>
-        <Col>
-          <Form
-            labelCol={{ span: 200 }}
-            wrapperCol={{ span: 200 }}
-            size={"small"}
-            layout='vertical'
-          >
-            <Form.Item
               label={"End Offset"}
               tooltip={"Play End Offset from Start of Sample"}
             >
@@ -268,7 +270,10 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={1} max={data.sampleLength} value={data.playLength} onValueChange={(value: number | null) => handleChange(34, value, ["playLength"], data)} />
+                min={1} 
+                max={data.sampleLength > 0 ? data.sampleLength : 12}
+                value={data.playLength} 
+                onValueChange={(value: number | null) => handleChange(34, value, ["playLength"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -280,10 +285,16 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             layout='vertical'
           >
             <Form.Item
-              label={"Sample Rate"}
+              label={"Length"}
             >
-              <InputNumber bordered={true} disabled={true} defaultValue={44100}
-                min={1} max={44100} value={data.sampleRate} /* onChange={(value: number | null) => handleChange(138, value, ["sampleRate"], data)} */ />
+              <InputNumber
+                controls={true}
+                bordered={true}
+                defaultValue={0}
+                readOnly={true}
+                min={1}
+                max={268435455}
+                value={data.sampleLength} />
             </Form.Item>
           </Form>
         </Col>
@@ -304,7 +315,10 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={-50} max={50} value={data.tuningOffset} onValueChange={(value: number | null) => handleChange(140, value, ["tuningOffset"], data)} />
+                min={-50} 
+                max={50} 
+                value={data.tuningOffset} 
+                onValueChange={(value: number | null) => handleChange(140, value, ["tuningOffset"], data)} />
             </Form.Item>
           </Form>
         </Col>
