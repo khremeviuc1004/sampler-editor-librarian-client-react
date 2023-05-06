@@ -1,4 +1,4 @@
-import { Col, Form, InputNumber, Row, Select } from 'antd';
+import { Col, Form, InputNumber, Row } from 'antd';
 import { Program } from '@sampler-editor-librarian/dto';
 
 export type MasterTuningDetails = {

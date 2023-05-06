@@ -1,4 +1,4 @@
-import { Col, Form, InputNumber, Row, Select } from 'antd';
+import { Col, Form, Row, Select } from 'antd';
 import { Program } from '@sampler-editor-librarian/dto';
 import { priorityTypes, programMidiChannels, reassignmentTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';

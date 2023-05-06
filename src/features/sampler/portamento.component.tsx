@@ -1,6 +1,6 @@
-import { Checkbox, Col, Form, InputNumber, Row, Select } from 'antd';
+import { Checkbox, Col, Form, Row, Select } from 'antd';
 import { Program } from '@sampler-editor-librarian/dto';
-import { portamentoTypes, priorityTypes, reassignmentTypes } from '../../util/util';
+import { portamentoTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';
 import { donutTheme } from './donut-theme';
 

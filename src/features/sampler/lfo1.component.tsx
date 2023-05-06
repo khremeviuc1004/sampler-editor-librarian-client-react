@@ -1,4 +1,4 @@
-import { Checkbox, Col, Form, InputNumber, Row, Select } from 'antd';
+import { Checkbox, Col, Form, Row, Select } from 'antd';
 import { Program } from '@sampler-editor-librarian/dto';
 import { modulationInputSourceTypes, waveFormTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';

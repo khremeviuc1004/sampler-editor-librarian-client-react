@@ -24,7 +24,7 @@ const canvasWidth = 400
 const canvasHeight = 100
 
 const generatePoints = (rate1: number, level1: number, rate2: number, level2: number, rate3: number, level3: number, rate4: number, level4: number): LinePoints => {
-  var slope1Value = (rate1 == 0 ? 1 : rate1);
+  var slope1Value = (rate1 === 0 ? 1 : rate1);
   var rate1slope = 99 / slope1Value;
   var level1yint = level1;
   var rate1yint = 0;
@@ -33,7 +33,7 @@ const generatePoints = (rate1: number, level1: number, rate2: number, level2: nu
   var line1x2 = (level1yint - rate1yint) / rate1slope;
   var line1y2 = level1yint;
 
-  var slope2Value = (rate2 == 0 ? 1 : rate2);
+  var slope2Value = (rate2 === 0 ? 1 : rate2);
 
   if (level2 < level1yint) {
     slope2Value *= -1;
@@ -45,7 +45,7 @@ const generatePoints = (rate1: number, level1: number, rate2: number, level2: nu
   var line2x2 = (level2yint - rate2yint) / rate2slope;
   var line2y2 = level2yint;
 
-  var slope3Value = (rate3 == 0 ? 1 : rate3);
+  var slope3Value = (rate3 === 0 ? 1 : rate3);
 
   if (level3 < level2yint) {
     slope3Value *= -1;
@@ -57,7 +57,7 @@ const generatePoints = (rate1: number, level1: number, rate2: number, level2: nu
   var line3x2 = (level3yint - rate3yint) / rate3slope;
   var line3y2 = level3yint;
 
-  var slope4Value = (rate4 == 0 ? 1 : rate4);
+  var slope4Value = (rate4 === 0 ? 1 : rate4);
 
   if (level4 < level3yint) {
     slope4Value *= -1;

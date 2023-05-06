@@ -1,6 +1,6 @@
 import { Breadcrumb, Checkbox, Col, Form, InputNumber, Row, Select, Tabs } from 'antd';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { KeyGroup } from '@sampler-editor-librarian/dto';
 import { MenuComponent } from '../menu/menu.component';
 import { KeygroupFilter1 } from './keygroup-filter1.component';
@@ -19,7 +19,6 @@ export const InMemoryKeygroup: React.FunctionComponent = (props) => {
   const { programNumber: inMemoryProgramNumber, keygroupNumber: inMemoryKeygroupNumber } = useParams<{ programNumber: string, keygroupNumber: string }>()
   let programNumberInMemory = inMemoryProgramNumber == null ? 0 : parseInt(inMemoryProgramNumber)
   let keygroupNumberInMemory = inMemoryKeygroupNumber == null ? 0 : parseInt(inMemoryKeygroupNumber)
-  const navigate = useNavigate()
   const breadcrumbItems = [
     {
       title: <Link to="/sampler">Sampler</Link>,

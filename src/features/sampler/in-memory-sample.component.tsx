@@ -1,6 +1,6 @@
 import { Breadcrumb, Checkbox, Col, Form, Input, InputNumber, Row, Select, Tabs } from 'antd';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { MenuComponent } from '../menu/menu.component';
 import { Sample } from '@sampler-editor-librarian/dto';
 import { bandwidths, samplePlayBackTypes } from '../../util/util';
@@ -13,7 +13,6 @@ export const InMemorySample: React.FunctionComponent = (props) => {
   const [data, setData] = useState<Sample>(new Sample())
   const { sampleNumber: inMemorySampleNumber } = useParams<{ sampleNumber: string }>()
   let sampleNumberInMemory = inMemorySampleNumber == null ? 0 : parseInt(inMemorySampleNumber)
-  const navigate = useNavigate()
   const breadcrumbItems = [
     {
       title: <Link to="/sampler">Sampler</Link>,
