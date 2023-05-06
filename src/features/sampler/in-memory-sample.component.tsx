@@ -1,5 +1,5 @@
 import { Breadcrumb, Checkbox, Col, Form, Input, InputNumber, Row, Select, Tabs } from 'antd';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { MenuComponent } from '../menu/menu.component';
 import { Sample } from '@sampler-editor-librarian/dto';
@@ -32,10 +32,11 @@ export const InMemorySample: React.FunctionComponent = (props) => {
         })
       })
   }
+  const fetchDataCallback = useCallback(fetchData, [inMemorySampleNumber])
   useEffect(() => {
     console.log("Rendering sampler sample view")
-    fetchData();
-  }, [])
+    fetchDataCallback();
+  }, [fetchDataCallback])
   const handleChange = (sampleHeaderIndex: number, value: number | boolean | null, path: Array<string>, sample: Sample) => {
     if (value !== null) {
       fetch(

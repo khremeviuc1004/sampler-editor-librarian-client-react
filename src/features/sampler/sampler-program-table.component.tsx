@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Button, notification, Popconfirm, Space, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import type { FilterValue } from 'antd/es/table/interface'
@@ -52,10 +52,11 @@ const SamplerProgramTable: React.FunctionComponent = () => {
             })
     }
     const [api] = notification.useNotification();
+    const fetchDataCallback = useCallback(fetchData, [tableParams])
     useEffect(() => {
         console.log("Rendering sampler program table")
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        fetchDataCallback()
+    }, [fetchDataCallback])
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {

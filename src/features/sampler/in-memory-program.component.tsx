@@ -1,7 +1,7 @@
 import { Breadcrumb, Button, Col, Form, Input, notification, Popconfirm, Row, Space, TablePaginationConfig, Tabs } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import { FilterValue } from 'antd/es/table/interface';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Program } from '@sampler-editor-librarian/dto';
 import { MenuComponent } from '../menu/menu.component';
@@ -45,6 +45,13 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
       title: 'Program' + (programNumberInMemory + 1)
     }
   ]
+  const [tableParams, setTableParams] = useState<TableParams>({
+    pagination: {
+      current: 1,
+      pageSize: 7,
+      hideOnSinglePage: true,
+    },
+  })
   const fetchData = () => {
     fetch(`http://localhost:4000/api/midi/sampler/program/${inMemoryProgramNumber}`)
       .then((res) => res.json())
@@ -71,9 +78,10 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
       })
   }
   const [api] = notification.useNotification();
+  const fetchDataCallback = useCallback(fetchData, [inMemoryProgramNumber, tableParams])
   useEffect(() => {
-    fetchData();
-  }, [JSON.stringify(inMemoryProgramNumber)])
+    fetchDataCallback();
+  }, [fetchDataCallback])
   const handleChange = (programHeaderIndex: number, value: number | boolean | null, path: Array<string>, programNumberInMemory: number, program: Program) => {
     if (value !== null) {
       fetch(
@@ -94,13 +102,6 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   }
   const [keygroups, setKeygroups] = useState<KeyGroup[]>()
   const [loading, setLoading] = useState(false)
-  const [tableParams, setTableParams] = useState<TableParams>({
-    pagination: {
-      current: 1,
-      pageSize: 7,
-      hideOnSinglePage: true,
-    },
-  })
   const handleTableChange = (
     pagination: TablePaginationConfig,
   ) => {

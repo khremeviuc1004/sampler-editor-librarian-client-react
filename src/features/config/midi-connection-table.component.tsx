@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { notification, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import type { FilterValue } from 'antd/es/table/interface'
@@ -81,9 +81,10 @@ const MidiConnectionTable: React.FunctionComponent<ConfigProperties> = (props) =
             })
     }
     const [api] = notification.useNotification();
+    const fetchDataCallback = useCallback(fetchData, [props, tableParams])
     useEffect(() => {
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        fetchDataCallback()
+    }, [fetchDataCallback])
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {

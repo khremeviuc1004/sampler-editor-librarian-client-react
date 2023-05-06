@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 
@@ -59,10 +59,11 @@ const SamplerStatusReport: React.FunctionComponent = () => {
                 })
             })
     }
+    const fetchDataCallback = useCallback(fetchData, [tableParams])
     useEffect(() => {
         console.log('Rendering sampler status report')
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        fetchDataCallback()
+    }, [fetchDataCallback])
 
 
     return (

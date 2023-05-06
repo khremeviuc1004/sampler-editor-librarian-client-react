@@ -42,7 +42,9 @@ const HardDiskDirectoryTable: React.FunctionComponent = () => {
                 setLoading(false);
             })
     }
+    // eslint-disable-next-line
     const [searchText, setSearchText] = useState('');
+    // eslint-disable-next-line
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef<InputRef>(null);
     const handleSearch = (

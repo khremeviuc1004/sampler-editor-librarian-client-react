@@ -1,5 +1,5 @@
 import { Breadcrumb, Checkbox, Col, Form, InputNumber, Row, Select, Tabs } from 'antd';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { KeyGroup } from '@sampler-editor-librarian/dto';
 import { MenuComponent } from '../menu/menu.component';
@@ -42,9 +42,10 @@ export const InMemoryKeygroup: React.FunctionComponent = (props) => {
         })
       })
   }
+  const fetchDataCallback = useCallback(fetchData, [inMemoryProgramNumber, inMemoryKeygroupNumber])
   useEffect(() => {
-    fetchData();
-  }, [JSON.stringify(inMemoryProgramNumber)])
+    fetchDataCallback();
+  }, [fetchDataCallback])
   const handleChange = (keygroupHeaderIndex: number, value: number | boolean | null, path: Array<string>, keygroup: KeyGroup) => {
     if (value !== null) {
       fetch(

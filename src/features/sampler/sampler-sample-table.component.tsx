@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { notification, Popconfirm, Space, Table } from 'antd'
+import React, { useCallback, useEffect, useState } from 'react'
+import { Button, notification, Popconfirm, Space, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import type { FilterValue } from 'antd/es/table/interface'
 import qs from 'qs'
 import { useNavigate } from 'react-router-dom'
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons'
 
 interface DataType {
     index: number,
@@ -56,10 +56,11 @@ const SamplerSampleTable: React.FunctionComponent = () => {
             })
     }
     const [api] = notification.useNotification();
+    const fetchDataCallback = useCallback(fetchData, [tableParams])
     useEffect(() => {
         console.log("Rendering sampler sample table")
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        fetchDataCallback()
+    }, [fetchDataCallback])
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {
@@ -138,7 +139,7 @@ const SamplerSampleTable: React.FunctionComponent = () => {
             loading={loading}
             title={() => 'Samples'}
             onChange={(pagination) => handleTableChange(pagination)}
-        // footer={() => <Button type='primary'  onClick={() => {handleAddSample();}}><PlusOutlined title='Add a new sample' /></Button>}
+            footer={() => <Button type='primary'  onClick={() => {handleAddSample();}}><PlusOutlined title='Add a new sample' /></Button>}
         />
     )
 }
