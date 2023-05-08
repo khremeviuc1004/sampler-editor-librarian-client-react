@@ -32,10 +32,12 @@ export const InMemorySample: React.FunctionComponent = (props) => {
         })
       })
   }
-  const fetchDataCallback = useCallback(fetchData, [inMemorySampleNumber])
+  // eslint-disable-next-line
+  const fetchDataCallback = useCallback(fetchData, [])
+  // eslint-disable-next-line
   useEffect(() => {
-    console.log("Rendering sampler sample view")
-    fetchDataCallback();
+    // eslint-disable-next-line
+    fetchDataCallback()
   }, [fetchDataCallback])
   const handleChange = (sampleHeaderIndex: number, value: number | boolean | null, path: Array<string>, sample: Sample) => {
     if (value !== null) {
@@ -166,8 +168,8 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={21} 
-                max={127} 
+                min={21}
+                max={127}
                 value={data.originalPitch} onValueChange={(value: number | null) => handleChange(2, value, ["originalPitch"], data)} />
             </Form.Item>
           </Form>
@@ -190,9 +192,9 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={0} 
+                min={0}
                 max={data.sampleLength > 0 ? data.sampleLength : 12}
-                value={data.startOffset} 
+                value={data.startOffset}
                 onValueChange={(value: number | null) => handleChange(30, value, ["startOffset"], data)} />
             </Form.Item>
           </Form>
@@ -270,9 +272,9 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={1} 
+                min={1}
                 max={data.sampleLength > 0 ? data.sampleLength : 12}
-                value={data.playLength} 
+                value={data.playLength}
                 onValueChange={(value: number | null) => handleChange(34, value, ["playLength"], data)} />
             </Form.Item>
           </Form>
@@ -315,9 +317,9 @@ export const InMemorySample: React.FunctionComponent = (props) => {
                 theme={{
                   ...donutTheme
                 }}
-                min={-50} 
-                max={50} 
-                value={data.tuningOffset} 
+                min={-50}
+                max={50}
+                value={data.tuningOffset}
                 onValueChange={(value: number | null) => handleChange(140, value, ["tuningOffset"], data)} />
             </Form.Item>
           </Form>

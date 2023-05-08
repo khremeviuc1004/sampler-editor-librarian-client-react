@@ -78,9 +78,12 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
       })
   }
   const [api] = notification.useNotification();
-  const fetchDataCallback = useCallback(fetchData, [inMemoryProgramNumber, tableParams])
+  // eslint-disable-next-line
+  const fetchDataCallback = useCallback(fetchData, [])
+  // eslint-disable-next-line
   useEffect(() => {
-    fetchDataCallback();
+    // eslint-disable-next-line
+    fetchDataCallback()
   }, [fetchDataCallback])
   const handleChange = (programHeaderIndex: number, value: number | boolean | null, path: Array<string>, programNumberInMemory: number, program: Program) => {
     if (value !== null) {

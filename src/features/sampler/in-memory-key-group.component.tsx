@@ -42,9 +42,12 @@ export const InMemoryKeygroup: React.FunctionComponent = (props) => {
         })
       })
   }
-  const fetchDataCallback = useCallback(fetchData, [inMemoryProgramNumber, inMemoryKeygroupNumber])
+  // eslint-disable-next-line
+  const fetchDataCallback = useCallback(fetchData, [])
+  // eslint-disable-next-line
   useEffect(() => {
-    fetchDataCallback();
+    // eslint-disable-next-line
+    fetchDataCallback()
   }, [fetchDataCallback])
   const handleChange = (keygroupHeaderIndex: number, value: number | boolean | null, path: Array<string>, keygroup: KeyGroup) => {
     if (value !== null) {

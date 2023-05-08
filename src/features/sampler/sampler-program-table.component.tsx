@@ -52,9 +52,11 @@ const SamplerProgramTable: React.FunctionComponent = () => {
             })
     }
     const [api] = notification.useNotification();
-    const fetchDataCallback = useCallback(fetchData, [tableParams])
+    // eslint-disable-next-line
+    const fetchDataCallback = useCallback(fetchData, [])
+    // eslint-disable-next-line
     useEffect(() => {
-        console.log("Rendering sampler program table")
+        // eslint-disable-next-line
         fetchDataCallback()
     }, [fetchDataCallback])
     const handleTableChange = (

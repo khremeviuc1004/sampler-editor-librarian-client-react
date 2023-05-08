@@ -81,8 +81,11 @@ const MidiConnectionTable: React.FunctionComponent<ConfigProperties> = (props) =
             })
     }
     const [api] = notification.useNotification();
-    const fetchDataCallback = useCallback(fetchData, [props, tableParams])
+    // eslint-disable-next-line
+    const fetchDataCallback = useCallback(fetchData, [])
+    // eslint-disable-next-line
     useEffect(() => {
+        // eslint-disable-next-line
         fetchDataCallback()
     }, [fetchDataCallback])
     const handleTableChange = (
