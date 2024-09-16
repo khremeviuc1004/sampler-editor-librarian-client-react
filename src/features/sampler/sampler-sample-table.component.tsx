@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Col, notification, Popconfirm, Row, Table } from 'antd'
+import React, { useCallback, useEffect, useState } from 'react'
+import { Button, notification, Popconfirm, Space, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
-import type { FilterValue, SorterResult } from 'antd/es/table/interface'
+import type { FilterValue } from 'antd/es/table/interface'
 import qs from 'qs'
 import { useNavigate } from 'react-router-dom'
 import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons'
@@ -32,15 +32,16 @@ const SamplerSampleTable: React.FunctionComponent = () => {
     const fetchData = () => {
         setLoading(true);
         fetch(`http://localhost:4000/api/midi/sampler/request-resident-sample-names?${qs.stringify({
-            page: tableParams.pagination?.current, 
-            results: tableParams.pagination?.pageSize})}`)
+            page: tableParams.pagination?.current,
+            results: tableParams.pagination?.pageSize
+        })}`)
             .then((res) => res.json())
             .then((results) => {
                 let data: DataType[] = []
                 let incoming_data: string[] = results
 
                 incoming_data.forEach((name, index) => {
-                    data.push({index, name})
+                    data.push({ index, name })
                 });
 
                 setData(data);
@@ -55,10 +56,13 @@ const SamplerSampleTable: React.FunctionComponent = () => {
             })
     }
     const [api] = notification.useNotification();
+    // eslint-disable-next-line
+    const fetchDataCallback = useCallback(fetchData, [])
+    // eslint-disable-next-line
     useEffect(() => {
-        console.log("Rendering sampler sample table")
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        // eslint-disable-next-line
+        fetchDataCallback()
+    }, [fetchDataCallback])
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {
@@ -73,7 +77,7 @@ const SamplerSampleTable: React.FunctionComponent = () => {
     let handleDeleteSample = (sampleNumberInMemory: number) => {
         fetch(
             `http://localhost:4000/api/midi/sampler/sample/${sampleNumberInMemory}`,
-            {method: 'DELETE'}
+            { method: 'DELETE' }
         ).then((value: Response) => {
             fetchData()
         }).catch((reason: any) => {
@@ -81,12 +85,12 @@ const SamplerSampleTable: React.FunctionComponent = () => {
                 message: 'Delete Failure',
                 description: 'Could not delete the sample: ' + reason,
             })
-        })   
+        })
     }
     let handleAddSample = () => {
         fetch(
             `http://localhost:4000/api/midi/sampler/sample/${data?.length}/template/square`,
-            {method: 'POST'}
+            { method: 'POST' }
         ).then((value: Response) => {
             fetchData()
         }).catch((reason: any) => {
@@ -94,7 +98,7 @@ const SamplerSampleTable: React.FunctionComponent = () => {
                 message: 'Add Failure',
                 description: 'Could not add a new sample: ' + reason,
             })
-        })   
+        })
     }
     const columns: ColumnsType<DataType> = [
         {
@@ -115,12 +119,14 @@ const SamplerSampleTable: React.FunctionComponent = () => {
             render: (value: any, record: DataType, index: number) => {
                 const sampleNumberInMemory = record.index
 
-                return  <>
-                            <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteSample(sampleNumberInMemory)}>
-                                <DeleteOutlined title="Delete sample" />
-                            </Popconfirm>
-                            <EditOutlined title='Edit sample' onClick={() => handleEditSample(sampleNumberInMemory)} />
-                        </>
+                return <>
+                    <Space>
+                        <EditOutlined title='Edit sample' onClick={() => handleEditSample(sampleNumberInMemory)} />
+                        <Popconfirm title="Are you sure?" onConfirm={() => handleDeleteSample(sampleNumberInMemory)}>
+                            <DeleteOutlined title="Delete sample" />
+                        </Popconfirm>
+                    </Space>
+                </>
             }
         },
     ]
@@ -135,7 +141,7 @@ const SamplerSampleTable: React.FunctionComponent = () => {
             loading={loading}
             title={() => 'Samples'}
             onChange={(pagination) => handleTableChange(pagination)}
-            // footer={() => <Button type='primary'  onClick={() => {handleAddSample();}}><PlusOutlined title='Add a new sample' /></Button>}
+            footer={() => <Button type='primary'  onClick={() => {handleAddSample();}}><PlusOutlined title='Add a new sample' /></Button>}
         />
     )
 }

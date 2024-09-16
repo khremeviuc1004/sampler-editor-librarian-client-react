@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { notification, Table } from 'antd'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import type { FilterValue } from 'antd/es/table/interface'
@@ -81,9 +81,13 @@ const MidiConnectionTable: React.FunctionComponent<ConfigProperties> = (props) =
             })
     }
     const [api] = notification.useNotification();
+    // eslint-disable-next-line
+    const fetchDataCallback = useCallback(fetchData, [])
+    // eslint-disable-next-line
     useEffect(() => {
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        // eslint-disable-next-line
+        fetchDataCallback()
+    }, [fetchDataCallback])
     const handleTableChange = (
         pagination: TablePaginationConfig,
     ) => {
@@ -96,7 +100,7 @@ const MidiConnectionTable: React.FunctionComponent<ConfigProperties> = (props) =
         console.log("Row selected", selectedRowKeys)
         let rowKeys: number[] = []
         selectedRowKeys.forEach((value) => {
-            if (value) {
+            if (value !== null) {
                 let rowKey: number = value.valueOf() as number
                 rowKeys.push(rowKey)
             }

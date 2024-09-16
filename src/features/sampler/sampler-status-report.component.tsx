@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 
@@ -41,10 +41,10 @@ const SamplerStatusReport: React.FunctionComponent = () => {
             .then((results) => {
                 let data: DataType[] = []
 
-                Object.entries(results).map(([key, value]) => {
-                    if (typeof value  == 'number') {
+                Object.entries(results).forEach(([key, value]) => {
+                    if (typeof value == 'number') {
                         let typed_value: number = value
-                        data.push({name: key, value: typed_value})
+                        data.push({ name: key, value: typed_value })
                     }
                 })
 
@@ -59,10 +59,13 @@ const SamplerStatusReport: React.FunctionComponent = () => {
                 })
             })
     }
+    // eslint-disable-next-line
+    const fetchDataCallback = useCallback(fetchData, [])
+    // eslint-disable-next-line
     useEffect(() => {
-        console.log('Rendering sampler status report')
-        fetchData()
-    }, [JSON.stringify(tableParams)])
+        // eslint-disable-next-line
+        fetchDataCallback()
+    }, [fetchDataCallback])
 
 
     return (

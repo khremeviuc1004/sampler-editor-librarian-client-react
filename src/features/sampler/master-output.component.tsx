@@ -1,6 +1,6 @@
-import { Col, Form, InputNumber, Row, Select } from 'antd';
+import { Col, Form, Row, Select } from 'antd';
 import { ModulationSourceType, Program } from '@sampler-editor-librarian/dto';
-import { individualOutputTypes, modulationInputSourceTypes, waveFormTypes } from '../../util/util';
+import { individualOutputTypes, modulationInputSourceTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';
 import { donutTheme } from './donut-theme';
 
@@ -39,36 +39,6 @@ export const MasterOutput: React.FunctionComponent<MasterOutputDetails> = (props
                 }}
                 min={0} max={99} value={props.data.masterOutput.loudness} onValueChange={(value: number | null) => props.handleChange(25, value, ["masterOutput", "loudness"], props.programNumberInMemory, props.data)} />
             </Form.Item>
-            <Form.Item
-              label={"Individual Output"}
-            >
-              <Select style={{ width: "90px" }}
-                options={individualOutputTypes} bordered={true} value={props.data.masterOutput.individualOutput} onChange={(value: number | null) => props.handleChange(22, value, ["masterOutput", "individualOutput"], props.programNumberInMemory, props.data)} />
-            </Form.Item>
-            <Form.Item
-              label={"Individual Level"}
-            >
-              <Donut
-                diameter={50}
-                step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.masterOutput.individualLevel} onValueChange={(value: number | null) => props.handleChange(70, value, ["masterOutput", "individualLevel"], props.programNumberInMemory, props.data)} />
-            </Form.Item>
-            <Form.Item
-              label={"Stereo Level"}
-            >
-              <Donut
-                diameter={50}
-                step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.masterOutput.stereoLevel} onValueChange={(value: number | null) => props.handleChange(23, value, ["masterOutput", "stereoLevel"], props.programNumberInMemory, props.data)} />
-            </Form.Item>
           </Form>
         </Col>
         <Col>
@@ -80,25 +50,12 @@ export const MasterOutput: React.FunctionComponent<MasterOutputDetails> = (props
             <Form.Item
               label={"Loudness Modulation Type"}
             >
-              <Select 
-                style={{ width: "90px" }}
-                options={[{ value: ModulationSourceType.NoteOnvelocity, label: ModulationSourceType[ModulationSourceType.NoteOnvelocity] }]} 
-                bordered={true} 
-                defaultValue={ModulationSourceType.NoteOnvelocity} 
+              <Select
+                options={[{ value: ModulationSourceType.NoteOnvelocity, label: ModulationSourceType[ModulationSourceType.NoteOnvelocity] }]}
+                bordered={true}
+                defaultValue={ModulationSourceType.NoteOnvelocity}
                 disabled={true}
-                />
-            </Form.Item>
-            <Form.Item
-              label={"Loudness Modulation Type"}
-            >
-              <Select style={{ width: "90px" }}
-                options={modulationInputSourceTypes} bordered={true} value={props.data.masterOutput.loudnessModulationInput2Type} onChange={(value: number | null) => props.handleChange(79, value, ["masterOutput", "loudnessModulationInput2Type"], props.programNumberInMemory, props.data)} />
-            </Form.Item>
-            <Form.Item
-              label={"Loudness Modulation Type"}
-            >
-              <Select style={{ width: "90px" }}
-                options={modulationInputSourceTypes} bordered={true} value={props.data.masterOutput.loudnessModulationInput3Type} onChange={(value: number | null) => props.handleChange(80, value, ["masterOutput", "loudnessModulationInput3Type"], props.programNumberInMemory, props.data)} />
+              />
             </Form.Item>
           </Form>
         </Col>
@@ -120,6 +77,44 @@ export const MasterOutput: React.FunctionComponent<MasterOutputDetails> = (props
                 }}
                 min={-50} max={50} value={props.data.masterOutput.loudnessModulationInput1Amount} onValueChange={(value: number | null) => props.handleChange(26, value, ["masterOutput", "loudnessModulationInput1Amount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Individual Output"}
+            >
+              <Select
+                options={individualOutputTypes} bordered={true} value={props.data.masterOutput.individualOutput} onChange={(value: number | null) => props.handleChange(22, value, ["masterOutput", "individualOutput"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Loudness Modulation Type"}
+            >
+              <Select
+                options={modulationInputSourceTypes} bordered={true} value={props.data.masterOutput.loudnessModulationInput2Type} onChange={(value: number | null) => props.handleChange(79, value, ["masterOutput", "loudnessModulationInput2Type"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Modulation Amount"}
             >
@@ -132,6 +127,50 @@ export const MasterOutput: React.FunctionComponent<MasterOutputDetails> = (props
                 }}
                 min={-50} max={50} value={props.data.masterOutput.loudnessModulationInput2Amount} onValueChange={(value: number | null) => props.handleChange(92, value, ["masterOutput", "loudnessModulationInput2Amount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Individual Level"}
+            >
+              <Donut
+                diameter={50}
+                step={1}
+                jumpLimit={10}
+                theme={{
+                  ...donutTheme
+                }}
+                min={0} max={99} value={props.data.masterOutput.individualLevel} onValueChange={(value: number | null) => props.handleChange(70, value, ["masterOutput", "individualLevel"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Loudness Modulation Type"}
+            >
+              <Select
+                options={modulationInputSourceTypes} bordered={true} value={props.data.masterOutput.loudnessModulationInput3Type} onChange={(value: number | null) => props.handleChange(80, value, ["masterOutput", "loudnessModulationInput3Type"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
             <Form.Item
               label={"Modulation Amount"}
             >
@@ -143,6 +182,28 @@ export const MasterOutput: React.FunctionComponent<MasterOutputDetails> = (props
                   ...donutTheme
                 }}
                 min={-50} max={50} value={props.data.masterOutput.loudnessModulationInput3Amount} onValueChange={(value: number | null) => props.handleChange(93, value, ["masterOutput", "loudnessModulationInput3Amount"], props.programNumberInMemory, props.data)} />
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+      <Row gutter={50}>
+        <Col>
+          <Form
+            {...layout}
+            size={"small"}
+            layout='vertical'
+          >
+            <Form.Item
+              label={"Stereo Level"}
+            >
+              <Donut
+                diameter={50}
+                step={1}
+                jumpLimit={10}
+                theme={{
+                  ...donutTheme
+                }}
+                min={0} max={99} value={props.data.masterOutput.stereoLevel} onValueChange={(value: number | null) => props.handleChange(23, value, ["masterOutput", "stereoLevel"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
