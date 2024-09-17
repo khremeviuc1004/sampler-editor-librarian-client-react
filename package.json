@@ -13,7 +13,7 @@
     "@mui/material": "^6.1.0",
     "@mui/x-data-grid": "^7.17.0",
     "@reduxjs/toolkit": "^2.2.7",
-    "@sampler-editor-librarian/dto": "file:./modules/sampler-editor-librarian-dto",
+    "sampler-editor-librarian-dto": "file:../sampler-editor-librarian-dto",
     "react-dial-knob": "file:../react-dial-knob",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

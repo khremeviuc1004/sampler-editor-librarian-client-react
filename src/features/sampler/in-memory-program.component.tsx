@@ -3,7 +3,7 @@ import Table, { ColumnsType } from 'antd/es/table';
 import { FilterValue } from 'antd/es/table/interface';
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Program } from '@sampler-editor-librarian/dto';
+import { Program } from 'sampler-editor-librarian-dto';
 import { MenuComponent } from '../menu/menu.component';
 import { LFO1 } from './lfo1.component';
 import { LFO2 } from './lfo2.component';

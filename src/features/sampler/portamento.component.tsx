@@ -1,5 +1,5 @@
 import { Checkbox, Col, Form, Row, Select } from 'antd';
-import { Program } from '@sampler-editor-librarian/dto';
+import { Program } from 'sampler-editor-librarian-dto';
 import { portamentoTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';
 import { donutTheme } from './donut-theme';

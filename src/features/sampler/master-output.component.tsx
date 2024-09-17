@@ -1,5 +1,5 @@
 import { Col, Form, Row, Select } from 'antd';
-import { ModulationSourceType, Program } from '@sampler-editor-librarian/dto';
+import { ModulationSourceType, Program } from 'sampler-editor-librarian-dto';
 import { individualOutputTypes, modulationInputSourceTypes } from '../../util/util';
 import { Donut } from 'react-dial-knob';
 import { donutTheme } from './donut-theme';

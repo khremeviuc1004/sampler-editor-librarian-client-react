@@ -10,7 +10,7 @@ import {
   Priority,
   Reassignment,
   Waveform, ZoneOutputType, ZonePlayback
-} from "@sampler-editor-librarian/dto";
+} from "sampler-editor-librarian-dto";
 
 export const modulationInputSourceTypes = [
   { value: ModulationSourceType.No_Source, label: "No Source" },

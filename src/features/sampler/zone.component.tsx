@@ -1,5 +1,5 @@
 import { Col, Form, InputNumber, Row, Select, SelectProps, Tabs } from 'antd';
-import { KeyGroup } from '@sampler-editor-librarian/dto';
+import { KeyGroup } from 'sampler-editor-librarian-dto';
 import { pitch, zonePlayBackTypes } from '../../util/util';
 import { useEffect, useState } from 'react';
 import { zoneOutputTypes } from '../../util/util';

@@ -1,5 +1,5 @@
 import { Col, Form, Row, Select } from 'antd';
-import { Program } from '@sampler-editor-librarian/dto';
+import { Program } from 'sampler-editor-librarian-dto';
 import { modulationInputSourceTypes } from '../../util/util';
 
 export type KeygroupGlobalDetails = {

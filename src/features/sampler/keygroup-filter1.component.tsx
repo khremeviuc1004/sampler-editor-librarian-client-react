@@ -1,5 +1,5 @@
 import { Col, Form, Row } from 'antd';
-import { KeyGroup } from '@sampler-editor-librarian/dto';
+import { KeyGroup } from 'sampler-editor-librarian-dto';
 import { Donut } from 'react-dial-knob';
 import { useEffect } from 'react';
 import { donutTheme } from './donut-theme';

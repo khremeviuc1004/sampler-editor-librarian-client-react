@@ -1,5 +1,5 @@
 import {  Col, Form, InputNumber,  Row } from 'antd';
-import { Sample, SampleLoop } from '@sampler-editor-librarian/dto';
+import { Sample, SampleLoop } from 'sampler-editor-librarian-dto';
 import { Donut } from 'react-dial-knob';
 import { donutTheme } from './donut-theme';
 

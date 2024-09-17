@@ -1,5 +1,5 @@
 import { Checkbox, Col, Form, Row } from 'antd';
-import { Program } from '@sampler-editor-librarian/dto';
+import { Program } from 'sampler-editor-librarian-dto';
 
 export type ModesDetails = {
   programNumberInMemory: number,

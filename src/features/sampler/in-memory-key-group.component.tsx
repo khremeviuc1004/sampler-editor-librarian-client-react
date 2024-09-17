@@ -1,7 +1,7 @@
 import { Breadcrumb, Checkbox, Col, Form, InputNumber, Row, Select, Tabs } from 'antd';
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { KeyGroup } from '@sampler-editor-librarian/dto';
+import { KeyGroup } from 'sampler-editor-librarian-dto';
 import { MenuComponent } from '../menu/menu.component';
 import { KeygroupFilter1 } from './keygroup-filter1.component';
 import { KeygroupFilter2 } from './keygroup-filter2.component';

@@ -2,7 +2,7 @@ import { Breadcrumb, Checkbox, Col, Form, Input, InputNumber, Row, Select, Tabs 
 import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { MenuComponent } from '../menu/menu.component';
-import { Sample } from '@sampler-editor-librarian/dto';
+import { Sample } from 'sampler-editor-librarian-dto';
 import { bandwidths, samplePlayBackTypes } from '../../util/util';
 import { SampleLoopComponent } from './sample-loop.component';
 import { Donut } from 'react-dial-knob';
