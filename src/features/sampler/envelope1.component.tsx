@@ -1,9 +1,9 @@
-import { Checkbox, Col, Form, Row } from 'antd';
+import { Checkbox, Col, Form, InputNumber, Row } from 'antd';
 import { KeyGroup } from 'sampler-editor-librarian-dto';
 import { useEffect, useState } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
-import { Donut } from 'react-dial-knob'
-import { donutTheme } from './donut-theme';
+
+
 
 export type Envelope1Details = {
   data: KeyGroup,
@@ -57,18 +57,12 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Attack"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-
                 min={0}
                 max={99}
                 value={props.data.envelope1.attack}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       value,
@@ -92,17 +86,12 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Vel. Mod. of Attack"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
                 min={-50}
                 max={50}
                 value={props.data.envelope1.velocityModulationOfAttack}
-                onValueChange={(value: number | null) => props.handleChange(16, value, ["envelope1", "velocityModulationOfAttack"], props.data)}
+                onChange={(value: number | null) => props.handleChange(16, value, ["envelope1", "velocityModulationOfAttack"], props.data)}
               />
             </Form.Item>
           </Form>
@@ -134,17 +123,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Decay"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope1.decay}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
@@ -166,17 +153,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Vel. Mod. of Release"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope1.velocityModulationOfRelease}
-                onValueChange={(value: number | null) => props.handleChange(17, value, ["envelope1", "velocityModulationOfRelease"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(17, value, ["envelope1", "velocityModulationOfRelease"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -204,17 +189,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Sustain"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope1.sustain}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
@@ -236,17 +219,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Vel. Off Mod. of Release"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope1.velocityOffModulationOfRelease}
-                onValueChange={(value: number | null) => props.handleChange(18, value, ["envelope1", "velocityOffModulationOfRelease"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(18, value, ["envelope1", "velocityOffModulationOfRelease"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -261,17 +242,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
             <Form.Item
               label={"Release"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope1.release}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope1.attack,
@@ -294,17 +273,15 @@ export const Envelope1: React.FunctionComponent<Envelope1Details> = (props) => {
               label={"Key Mod. of Dec. & Rel."}
 
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope1.keyModulationOfDecayAndRelease}
-                onValueChange={(value: number | null) => props.handleChange(19, value, ["envelope1", "keyModulationOfDecayAndRelease"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(19, value, ["envelope1", "keyModulationOfDecayAndRelease"], props.data)} />
             </Form.Item>
           </Form>
         </Col>

@@ -1,8 +1,8 @@
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { priorityTypes, programMidiChannels, reassignmentTypes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type MidiPanDetails = {
   programNumberInMemory: number,
@@ -30,17 +30,15 @@ export const MidiPan: React.FunctionComponent<MidiPanDetails> = (props) => {
             <Form.Item
               label={"Program Number"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={1} 
                 max={128} 
                 value={props.data.midi.programNumber + 1} 
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     props.handleChange(15, value - 1, ["midi", "programNumber"], props.programNumberInMemory, props.data)
                   }
@@ -74,17 +72,15 @@ export const MidiPan: React.FunctionComponent<MidiPanDetails> = (props) => {
             <Form.Item
               label={"Play Low"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={21} 
                 max={127} 
                 value={props.data.midi.playRangeLow} 
-                onValueChange={(value: number | null) => props.handleChange(19, value, ["midi", "playRangeLow"], props.programNumberInMemory, props.data)} />
+                onChange={(value: number | null) => props.handleChange(19, value, ["midi", "playRangeLow"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -133,17 +129,15 @@ export const MidiPan: React.FunctionComponent<MidiPanDetails> = (props) => {
             <Form.Item
               label={"Play High"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={21} 
                 max={127} 
                 value={props.data.midi.playRangeHigh} 
-                onValueChange={(value: number | null) => props.handleChange(20, value, ["midi", "playRangeHigh"], props.programNumberInMemory, props.data)} />
+                onChange={(value: number | null) => props.handleChange(20, value, ["midi", "playRangeHigh"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -158,17 +152,15 @@ export const MidiPan: React.FunctionComponent<MidiPanDetails> = (props) => {
             <Form.Item
               label={"Polyphony"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={1} 
                 max={32} 
                 value={props.data.midi.polyphony + 1} 
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     props.handleChange(17, value - 1, ["midi", "polyphony"], props.programNumberInMemory, props.data)
                   }

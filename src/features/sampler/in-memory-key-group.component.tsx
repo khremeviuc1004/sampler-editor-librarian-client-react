@@ -21,7 +21,7 @@ export const InMemoryKeygroup: React.FunctionComponent = (props) => {
   let keygroupNumberInMemory = inMemoryKeygroupNumber == null ? 0 : parseInt(inMemoryKeygroupNumber)
   const breadcrumbItems = [
     {
-      title: <Link to="/sampler">Sampler</Link>,
+      title: <Link to="/sampler">Memory</Link>,
       key: 'sampler',
     },
     {

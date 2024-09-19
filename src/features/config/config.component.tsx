@@ -7,7 +7,7 @@ import MidiConnectionTable from './midi-connection-table.component';
 export const Config: React.FunctionComponent = (props) => {
   const breadcrumbItems = [
     {
-      title: 'Config'
+      title: 'Settings'
     }
   ]
 

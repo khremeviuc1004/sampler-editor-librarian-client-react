@@ -1,8 +1,8 @@
-import { Checkbox, Col, Form, Row, Select } from 'antd';
+import { Checkbox, Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { portamentoTypes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type PortamentoDetails = {
   programNumberInMemory: number,
@@ -30,14 +30,12 @@ export const Portamento: React.FunctionComponent<PortamentoDetails> = (props) =>
             <Form.Item
               label={"Rate"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.portamento.rate} onValueChange={(value: number | null) => props.handleChange(110, value, ["portamento", "rate"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.portamento.rate} onChange={(value: number | null) => props.handleChange(110, value, ["portamento", "rate"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

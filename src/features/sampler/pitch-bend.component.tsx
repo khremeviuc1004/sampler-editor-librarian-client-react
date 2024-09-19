@@ -1,8 +1,8 @@
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { bendModes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type PitchBendDetails = {
   programNumberInMemory: number,
@@ -26,14 +26,12 @@ export const PitchBend: React.FunctionComponent<PitchBendDetails> = (props) => {
             <Form.Item
               label={"Bendwheel up"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={24} value={props.data.pitchBend.bendWheelUp} onValueChange={(value: number | null) => props.handleChange(39, value, ["pitchBend", "bendWheelUp"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={24} value={props.data.pitchBend.bendWheelUp} onChange={(value: number | null) => props.handleChange(39, value, ["pitchBend", "bendWheelUp"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -64,14 +62,12 @@ export const PitchBend: React.FunctionComponent<PitchBendDetails> = (props) => {
             <Form.Item
               label={"Bendwheel down"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={24} value={props.data.pitchBend.bendWheelDown} onValueChange={(value: number | null) => props.handleChange(73, value, ["pitchBend", "bendWheelDown"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={24} value={props.data.pitchBend.bendWheelDown} onChange={(value: number | null) => props.handleChange(73, value, ["pitchBend", "bendWheelDown"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -87,14 +83,12 @@ export const PitchBend: React.FunctionComponent<PitchBendDetails> = (props) => {
             <Form.Item
               label={"Pressure"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-12} max={12} value={props.data.pitchBend.pressureModulation} onValueChange={(value: number | null) => props.handleChange(40, value, ["pitchBend", "pressureModulation"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-12} max={12} value={props.data.pitchBend.pressureModulation} onChange={(value: number | null) => props.handleChange(40, value, ["pitchBend", "pressureModulation"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

@@ -1,8 +1,8 @@
-import { Checkbox, Col, Form, Row, Select } from 'antd';
+import { Checkbox, Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { modulationInputSourceTypes, waveFormTypes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type LFO1Details = {
   programNumberInMemory: number,
@@ -78,14 +78,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Speed"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.speed} onValueChange={(value: number | null) => props.handleChange(33, value, ["lfo1", "speed"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.speed} onChange={(value: number | null) => props.handleChange(33, value, ["lfo1", "speed"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -114,14 +112,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.lfo1.speedModulationInputAmount} onValueChange={(value: number | null) => props.handleChange(94, value, ["lfo1", "speedModulationInputAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.lfo1.speedModulationInputAmount} onChange={(value: number | null) => props.handleChange(94, value, ["lfo1", "speedModulationInputAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -135,14 +131,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Modwheel Extra Depth"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.extraDepthModulationByModwheelAmount} onValueChange={(value: number | null) => props.handleChange(36, value, ["lfo1", "extraDepthModulationByModwheelAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.extraDepthModulationByModwheelAmount} onChange={(value: number | null) => props.handleChange(36, value, ["lfo1", "extraDepthModulationByModwheelAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -158,14 +152,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Depth"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.depth} onValueChange={(value: number | null) => props.handleChange(34, value, ["lfo1", "depth"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.depth} onChange={(value: number | null) => props.handleChange(34, value, ["lfo1", "depth"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -194,14 +186,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.lfo1.depthModulationInputAmount} onValueChange={(value: number | null) => props.handleChange(95, value, ["lfo1", "depthModulationInputAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.lfo1.depthModulationInputAmount} onChange={(value: number | null) => props.handleChange(95, value, ["lfo1", "depthModulationInputAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -215,14 +205,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Pressure Extra Depth"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.extraDepthModulationByAftertouchAmount} onValueChange={(value: number | null) => props.handleChange(37, value, ["lfo1", "extraDepthModulationByAftertouchAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.extraDepthModulationByAftertouchAmount} onChange={(value: number | null) => props.handleChange(37, value, ["lfo1", "extraDepthModulationByAftertouchAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -238,14 +226,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Delay"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.delay} onValueChange={(value: number | null) => props.handleChange(35, value, ["lfo1", "delay"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.delay} onChange={(value: number | null) => props.handleChange(35, value, ["lfo1", "delay"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -274,14 +260,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.lfo1.delayModulationInputAmount} onValueChange={(value: number | null) => props.handleChange(96, value, ["lfo1", "delayModulationInputAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.lfo1.delayModulationInputAmount} onChange={(value: number | null) => props.handleChange(96, value, ["lfo1", "delayModulationInputAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -295,14 +279,12 @@ export const LFO1: React.FunctionComponent<LFO1Details> = (props) => {
             <Form.Item
               label={"Velocity Extra Depth"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo1.extraDepthModulationByVelocityAmount} onValueChange={(value: number | null) => props.handleChange(38, value, ["lfo1", "extraDepthModulationByVelocityAmount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo1.extraDepthModulationByVelocityAmount} onChange={(value: number | null) => props.handleChange(38, value, ["lfo1", "extraDepthModulationByVelocityAmount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

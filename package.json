@@ -14,7 +14,7 @@
     "@mui/x-data-grid": "^7.17.0",
     "@reduxjs/toolkit": "^2.2.7",
     "sampler-editor-librarian-dto": "file:../sampler-editor-librarian-dto",
-    "react-dial-knob": "file:../react-dial-knob",
+    "react-dial-knob": "file:/home/kevin/Desktop/Data/Personal/Development/JavaScript/react-dial-knob",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

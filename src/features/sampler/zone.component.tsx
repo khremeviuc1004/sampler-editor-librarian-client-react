@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { zoneOutputTypes } from '../../util/util';
 import { EditOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type ZoneDetails = {
   data: KeyGroup,
@@ -96,8 +96,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity Low"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone1.velocityLow} onValueChange={(value: number | null) => props.handleChange(46, value, ["zone1", "velocityLow"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone1.velocityLow} onChange={(value: number | null) => props.handleChange(46, value, ["zone1", "velocityLow"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -110,8 +110,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity High"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone1.velocityHigh} onValueChange={(value: number | null) => props.handleChange(47, value, ["zone1", "velocityHigh"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone1.velocityHigh} onChange={(value: number | null) => props.handleChange(47, value, ["zone1", "velocityHigh"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -159,17 +159,12 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Loudness"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
                         min={-50}
                         max={50}
                         value={props.data.zone1.loudness}
-                        onValueChange={(value: number | null) => props.handleChange(50, value, ["zone1", "loudness"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(50, value, ["zone1", "loudness"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -184,17 +179,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Filter"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone1.filterCutOff}
-                        onValueChange={(value: number | null) => props.handleChange(51, value, ["zone1", "filterCutOff"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(51, value, ["zone1", "filterCutOff"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -207,17 +200,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Pan"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone1.pan}
-                        onValueChange={(value: number | null) => props.handleChange(52, value, ["zone1", "pan"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(52, value, ["zone1", "pan"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -258,17 +249,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity > start"}
                     >
-                      <Donut
-                        diameter={75}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-9999}
                         max={9999}
                         value={props.data.zone1.velToStartPosAdj}
-                        onValueChange={(value: number | null) => props.handleChange(140, value, ["zone1", "velToStartPosAdj"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(140, value, ["zone1", "velToStartPosAdj"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -309,8 +298,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity Low"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone2.velocityLow} onValueChange={(value: number | null) => props.handleChange(70, value, ["zone2", "velocityLow"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone2.velocityLow} onChange={(value: number | null) => props.handleChange(70, value, ["zone2", "velocityLow"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -323,8 +312,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity High"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone2.velocityHigh} onValueChange={(value: number | null) => props.handleChange(71, value, ["zone2", "velocityHigh"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone2.velocityHigh} onChange={(value: number | null) => props.handleChange(71, value, ["zone2", "velocityHigh"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -372,17 +361,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Loudness"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone2.loudness}
-                        onValueChange={(value: number | null) => props.handleChange(74, value, ["zone2", "loudness"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(74, value, ["zone2", "loudness"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -397,17 +384,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Filter"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone2.filterCutOff}
-                        onValueChange={(value: number | null) => props.handleChange(75, value, ["zone2", "filterCutOff"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(75, value, ["zone2", "filterCutOff"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -420,17 +405,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Pan"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone2.pan}
-                        onValueChange={(value: number | null) => props.handleChange(76, value, ["zone2", "pan"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(76, value, ["zone2", "pan"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -471,17 +454,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity > start"}
                     >
-                      <Donut
-                        diameter={75}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-9999}
                         max={9999}
                         value={props.data.zone2.velToStartPosAdj}
-                        onValueChange={(value: number | null) => props.handleChange(142, value, ["zone2", "velToStartPosAdj"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(142, value, ["zone2", "velToStartPosAdj"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -522,8 +503,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity Low"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone3.velocityLow} onValueChange={(value: number | null) => props.handleChange(94, value, ["zone3", "velocityLow"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone3.velocityLow} onChange={(value: number | null) => props.handleChange(94, value, ["zone3", "velocityLow"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -536,8 +517,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity High"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone3.velocityHigh} onValueChange={(value: number | null) => props.handleChange(95, value, ["zone3", "velocityHigh"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone3.velocityHigh} onChange={(value: number | null) => props.handleChange(95, value, ["zone3", "velocityHigh"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -585,17 +566,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Loudness"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone3.loudness}
-                        onValueChange={(value: number | null) => props.handleChange(98, value, ["zone3", "loudness"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(98, value, ["zone3", "loudness"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -610,17 +589,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Filter"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone3.filterCutOff}
-                        onValueChange={(value: number | null) => props.handleChange(99, value, ["zone3", "filterCutOff"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(99, value, ["zone3", "filterCutOff"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -633,17 +610,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Pan"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone3.pan}
-                        onValueChange={(value: number | null) => props.handleChange(100, value, ["zone3", "pan"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(100, value, ["zone3", "pan"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -684,17 +659,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity > start"}
                     >
-                      <Donut
-                        diameter={75}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-9999}
                         max={9999}
                         value={props.data.zone3.velToStartPosAdj}
-                        onValueChange={(value: number | null) => props.handleChange(144, value, ["zone3", "velToStartPosAdj"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(144, value, ["zone3", "velToStartPosAdj"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -735,8 +708,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity Low"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone4.velocityLow} onValueChange={(value: number | null) => props.handleChange(118, value, ["zone4", "velocityLow"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone4.velocityLow} onChange={(value: number | null) => props.handleChange(118, value, ["zone4", "velocityLow"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -749,8 +722,8 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity High"}
                     >
-                      <Donut diameter={50} step={1} jumpLimit={10} theme={{ ...donutTheme }}
-                        min={0} max={127} value={props.data.zone4.velocityHigh} onValueChange={(value: number | null) => props.handleChange(119, value, ["zone4", "velocityHigh"], props.data)} />
+                      <InputNumber  step={1}
+                        min={0} max={127} value={props.data.zone4.velocityHigh} onChange={(value: number | null) => props.handleChange(119, value, ["zone4", "velocityHigh"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -798,17 +771,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Loudness"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone4.loudness}
-                        onValueChange={(value: number | null) => props.handleChange(122, value, ["zone4", "loudness"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(122, value, ["zone4", "loudness"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -823,17 +794,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Filter"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone4.filterCutOff}
-                        onValueChange={(value: number | null) => props.handleChange(123, value, ["zone4", "filterCutOff"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(123, value, ["zone4", "filterCutOff"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -846,17 +815,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Pan"}
                     >
-                      <Donut
-                        diameter={50}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-50}
                         max={50}
                         value={props.data.zone4.pan}
-                        onValueChange={(value: number | null) => props.handleChange(124, value, ["zone4", "pan"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(124, value, ["zone4", "pan"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>
@@ -897,17 +864,15 @@ export const KeyGroupZone: React.FunctionComponent<ZoneDetails> = (props) => {
                     <Form.Item
                       label={"Velocity > start"}
                     >
-                      <Donut
-                        diameter={75}
+                      <InputNumber
+                        
                         step={1}
-                        jumpLimit={10}
-                        theme={{
-                          ...donutTheme
-                        }}
+                        
+                        
                         min={-9999}
                         max={9999}
                         value={props.data.zone4.velToStartPosAdj}
-                        onValueChange={(value: number | null) => props.handleChange(146, value, ["zone4", "velToStartPosAdj"], props.data)} />
+                        onChange={(value: number | null) => props.handleChange(146, value, ["zone4", "velToStartPosAdj"], props.data)} />
                     </Form.Item>
                   </Form>
                 </Col>

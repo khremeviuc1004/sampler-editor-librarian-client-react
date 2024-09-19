@@ -1,7 +1,7 @@
 import {  Col, Form, InputNumber,  Row } from 'antd';
 import { Sample, SampleLoop } from 'sampler-editor-librarian-dto';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type SampleLoopProperties = {
   data: Sample,
@@ -31,17 +31,15 @@ export const SampleLoopComponent: React.FunctionComponent<SampleLoopProperties> 
               label={"Start"}
               tooltip={"Loop Start - sample is played to this point and then looping starts from this position minus loop length"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={props.data.sampleLength > 0 ? props.data.sampleLength : 12}
                 value={props.loop.loopStart}
-                onValueChange={(value: number | null) => props.handleChange(38 + (props.sampleLoopNumber * 12), value, ["loop" + (props.sampleLoopNumber + 1), "loopStart"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(38 + (props.sampleLoopNumber * 12), value, ["loop" + (props.sampleLoopNumber + 1), "loopStart"], props.data)} />
             </Form.Item>
             <Form.Item
               label={"Length"}

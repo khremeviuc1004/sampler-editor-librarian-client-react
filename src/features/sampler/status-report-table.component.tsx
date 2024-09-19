@@ -24,7 +24,7 @@ interface TableParams {
     pagination?: TablePaginationConfig;
 }
 
-const SamplerStatusReport: React.FunctionComponent = () => {
+const StatusReportTable: React.FunctionComponent = () => {
     const [data, setData] = useState<DataType[]>()
     const [loading, setLoading] = useState(false)
     const [tableParams, setTableParams] = useState<TableParams>({
@@ -81,4 +81,4 @@ const SamplerStatusReport: React.FunctionComponent = () => {
     )
 }
 
-export default SamplerStatusReport
+export default StatusReportTable

@@ -1,9 +1,9 @@
-import { Col, Form, Row } from 'antd';
+import { Col, Form, InputNumber, Row } from 'antd';
 import { KeyGroup } from 'sampler-editor-librarian-dto';
-import { Donut } from 'react-dial-knob';
 import { Layer, Line, Stage } from 'react-konva';
 import { useEffect, useState } from 'react';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type Envelope2Details = {
   data: KeyGroup,
@@ -109,17 +109,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"R1"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.rate1}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       value,
@@ -146,17 +144,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"L1"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.level1}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -183,17 +179,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"Vel.  Mod. of R1"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope2.velocityModulationOfRate1}
-                onValueChange={(value: number | null) => props.handleChange(24, value, ["envelope2", "velocityModulationOfRate1"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(24, value, ["envelope2", "velocityModulationOfRate1"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -224,17 +218,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"R2"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.rate2}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -261,17 +253,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"L2"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.level2}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -298,17 +288,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"Vel. Mod. of R4"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope2.velocityModulationOfRate4}
-                onValueChange={(value: number | null) => props.handleChange(25, value, ["envelope2", "velocityModulationOfRate4"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(25, value, ["envelope2", "velocityModulationOfRate4"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -321,17 +309,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"Vel. Mod. of Env."}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope2.velocityModulationOfEnvelope}
-                onValueChange={(value: number | null) => props.handleChange(28, value, ["envelope2", "velocityModulationOfEnvelope"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(28, value, ["envelope2", "velocityModulationOfEnvelope"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -346,17 +332,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"R3"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.rate3}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -383,17 +367,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"L3"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.level3}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -420,17 +402,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"Vel. Off Mod. of R4"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope2.velocityOffModulationOfRate4}
-                onValueChange={(value: number | null) => props.handleChange(26, value, ["envelope2", "velocityOffModulationOfRate4"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(26, value, ["envelope2", "velocityOffModulationOfRate4"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -445,17 +425,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"R4"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.rate4}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -482,17 +460,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"L4"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.envelope2.level4}
-                onValueChange={(value: number | null) => {
+                onChange={(value: number | null) => {
                   if (value !== null) {
                     setLines(generatePoints(
                       props.data.envelope2.rate1,
@@ -519,17 +495,15 @@ export const Envelope2: React.FunctionComponent<Envelope2Details> = (props) => {
             <Form.Item
               label={"Key Mod. of R2 and R4"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.envelope2.keyModulationOfRate2AndRate4}
-                onValueChange={(value: number | null) => props.handleChange(27, value, ["envelope2", "keyModulationOfRate2AndRate4"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(27, value, ["envelope2", "keyModulationOfRate2AndRate4"], props.data)} />
             </Form.Item>
           </Form>
         </Col>

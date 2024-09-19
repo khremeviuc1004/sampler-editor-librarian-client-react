@@ -5,8 +5,8 @@ import { MenuComponent } from '../menu/menu.component';
 import { Sample } from 'sampler-editor-librarian-dto';
 import { bandwidths, samplePlayBackTypes } from '../../util/util';
 import { SampleLoopComponent } from './sample-loop.component';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 
 export const InMemorySample: React.FunctionComponent = (props) => {
@@ -161,16 +161,14 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             <Form.Item
               label={"Original Pitch"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={21}
                 max={127}
-                value={data.originalPitch} onValueChange={(value: number | null) => handleChange(2, value, ["originalPitch"], data)} />
+                value={data.originalPitch} onChange={(value: number | null) => handleChange(2, value, ["originalPitch"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -185,17 +183,15 @@ export const InMemorySample: React.FunctionComponent = (props) => {
               label={"Start Offset"}
               tooltip={"Play Start Offset from Start of Sample"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={data.sampleLength > 0 ? data.sampleLength : 12}
                 value={data.startOffset}
-                onValueChange={(value: number | null) => handleChange(30, value, ["startOffset"], data)} />
+                onChange={(value: number | null) => handleChange(30, value, ["startOffset"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -265,17 +261,15 @@ export const InMemorySample: React.FunctionComponent = (props) => {
               label={"End Offset"}
               tooltip={"Play End Offset from Start of Sample"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={1}
                 max={data.sampleLength > 0 ? data.sampleLength : 12}
                 value={data.playLength}
-                onValueChange={(value: number | null) => handleChange(34, value, ["playLength"], data)} />
+                onChange={(value: number | null) => handleChange(34, value, ["playLength"], data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -310,17 +304,15 @@ export const InMemorySample: React.FunctionComponent = (props) => {
             <Form.Item
               label={"Tuning Offset of Hold Loop"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={data.tuningOffset}
-                onValueChange={(value: number | null) => handleChange(140, value, ["tuningOffset"], data)} />
+                onChange={(value: number | null) => handleChange(140, value, ["tuningOffset"], data)} />
             </Form.Item>
           </Form>
         </Col>

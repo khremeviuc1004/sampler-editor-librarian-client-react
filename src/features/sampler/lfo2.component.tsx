@@ -1,8 +1,8 @@
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { lfoRetriggerOptions, waveFormTypes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type LFO2Details = {
   programNumberInMemory: number,
@@ -58,14 +58,12 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
             <Form.Item
               label={"Speed"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo2.speed} onValueChange={(value: number | null) => props.handleChange(29, value, ["lfo2", "speed"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo2.speed} onChange={(value: number | null) => props.handleChange(29, value, ["lfo2", "speed"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -81,14 +79,12 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
             <Form.Item
               label={"Depth"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo2.depth} onValueChange={(value: number | null) => props.handleChange(30, value, ["lfo2", "depth"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo2.depth} onChange={(value: number | null) => props.handleChange(30, value, ["lfo2", "depth"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -104,14 +100,12 @@ export const LFO2: React.FunctionComponent<LFO2Details> = (props) => {
             <Form.Item
               label={"Delay"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={0} max={99} value={props.data.lfo2.delay} onValueChange={(value: number | null) => props.handleChange(31, value, ["lfo2", "delay"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={0} max={99} value={props.data.lfo2.delay} onChange={(value: number | null) => props.handleChange(31, value, ["lfo2", "delay"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

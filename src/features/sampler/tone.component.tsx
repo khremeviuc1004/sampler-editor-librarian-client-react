@@ -1,9 +1,9 @@
-import { Checkbox, Col, Form, Row, Select } from 'antd';
+import { Checkbox, Col, Form, InputNumber, Row, Select } from 'antd';
 import { KeyGroup } from 'sampler-editor-librarian-dto';
 import { attenuation } from '../../util/util';
-import { Donut } from 'react-dial-knob';
 import { useEffect } from 'react';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type ToneDetails = {
   data: KeyGroup,
@@ -48,17 +48,15 @@ export const KeygroupTone: React.FunctionComponent<ToneDetails> = (props) => {
             <Form.Item
               label={"Centre Frequency"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={0}
                 max={99}
                 value={props.data.tone.centerFreqency}
-                onValueChange={(value: number | null) => props.handleChange(172, value, ["tone", "centerFreqency"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(172, value, ["tone", "centerFreqency"], props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -73,17 +71,15 @@ export const KeygroupTone: React.FunctionComponent<ToneDetails> = (props) => {
             <Form.Item
               label={"Slope"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
+                
+                
                 min={-50}
                 max={50}
                 value={props.data.tone.slope}
-                onValueChange={(value: number | null) => props.handleChange(173, value, ["tone", "slope"], props.data)} />
+                onChange={(value: number | null) => props.handleChange(173, value, ["tone", "slope"], props.data)} />
             </Form.Item>
           </Form>
         </Col>

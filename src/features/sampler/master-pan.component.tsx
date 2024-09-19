@@ -1,8 +1,8 @@
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Form, InputNumber, Row, Select } from 'antd';
 import { Program } from 'sampler-editor-librarian-dto';
 import { modulationInputSourceTypes } from '../../util/util';
-import { Donut } from 'react-dial-knob';
-import { donutTheme } from './donut-theme';
+;
+
 
 export type MasterPanDetails = {
   programNumberInMemory: number,
@@ -30,14 +30,12 @@ export const MasterPan: React.FunctionComponent<MasterPanDetails> = (props) => {
             <Form.Item
               label={"Stero Pan"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.masterPan.stereoPan} onValueChange={(value: number | null) => props.handleChange(24, value, ["masterPan", "stereoPan"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.masterPan.stereoPan} onChange={(value: number | null) => props.handleChange(24, value, ["masterPan", "stereoPan"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -64,14 +62,12 @@ export const MasterPan: React.FunctionComponent<MasterPanDetails> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.masterPan.panModulationInput1Amount} onValueChange={(value: number | null) => props.handleChange(89, value, ["masterPan", "panModulationInput1Amount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.masterPan.panModulationInput1Amount} onChange={(value: number | null) => props.handleChange(89, value, ["masterPan", "panModulationInput1Amount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -109,14 +105,12 @@ export const MasterPan: React.FunctionComponent<MasterPanDetails> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.masterPan.panModulationInput2Amount} onValueChange={(value: number | null) => props.handleChange(90, value, ["masterPan", "panModulationInput2Amount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.masterPan.panModulationInput2Amount} onChange={(value: number | null) => props.handleChange(90, value, ["masterPan", "panModulationInput2Amount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>
@@ -154,14 +148,12 @@ export const MasterPan: React.FunctionComponent<MasterPanDetails> = (props) => {
             <Form.Item
               label={"Modulation Amount"}
             >
-              <Donut
-                diameter={50}
+              <InputNumber
+                
                 step={1}
-                jumpLimit={10}
-                theme={{
-                  ...donutTheme
-                }}
-                min={-50} max={50} value={props.data.masterPan.panModulationInput3Amount} onValueChange={(value: number | null) => props.handleChange(91, value, ["masterPan", "panModulationInput3Amount"], props.programNumberInMemory, props.data)} />
+                
+                
+                min={-50} max={50} value={props.data.masterPan.panModulationInput3Amount} onChange={(value: number | null) => props.handleChange(91, value, ["masterPan", "panModulationInput3Amount"], props.programNumberInMemory, props.data)} />
             </Form.Item>
           </Form>
         </Col>

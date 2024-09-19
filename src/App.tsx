@@ -11,6 +11,7 @@ import { InMemoryProgram } from './features/sampler/in-memory-program.component'
 import { InMemoryKeygroup } from './features/sampler/in-memory-key-group.component';
 import { InMemorySample } from './features/sampler/in-memory-sample.component';
 import { Config } from './features/config/config.component';
+import { StatusReport } from './features/sampler/status-report.component';
 
 interface AppProps {}
 
@@ -30,6 +31,7 @@ const App: React.FunctionComponent<AppProps> = (props) => {
             <Route path="/in-memory-program/:id" element={<InMemoryProgram />} />
             <Route path="/in-memory-key-group/:programNumber/keygroup/:keygroupNumber" element={<InMemoryKeygroup />} />
             <Route path="/in-memory-sample/:sampleNumber" element={<InMemorySample />} />
+            <Route path="/status-report" element={<StatusReport />} />
           </Routes>
         </BrowserRouter>
       </ConfigProvider>

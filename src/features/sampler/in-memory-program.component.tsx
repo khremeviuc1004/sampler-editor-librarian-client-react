@@ -38,11 +38,11 @@ export const InMemoryProgram: React.FunctionComponent = (props) => {
   const navigate = useNavigate()
   const breadcrumbItems = [
     {
-      title: <Link to="/Sampler">Sampler</Link>,
+      title: <Link to="/sampler">Memory</Link>,
       key: 'sampler',
     },
     {
-      title: 'Program' + (programNumberInMemory + 1)
+      title: 'Program ' + (programNumberInMemory + 1)
     }
   ]
   const [tableParams, setTableParams] = useState<TableParams>({
